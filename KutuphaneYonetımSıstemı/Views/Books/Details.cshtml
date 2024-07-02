@@ -1,0 +1,35 @@
+﻿@model KutuphaneYonetımSıstemı.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div>
+    <h2>Book Details</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <h5>Kitap..:</h5>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt class="col-sm-2">
+            <h5>Yazar..:</h5>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book_author)
+        </dd>
+
+        <dt class="col-sm-2">
+            <h5>Tür..:</h5>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.genre.genre_name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

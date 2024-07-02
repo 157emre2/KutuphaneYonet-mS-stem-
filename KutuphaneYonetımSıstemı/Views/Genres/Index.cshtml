@@ -1,0 +1,41 @@
+﻿@model IEnumerable<KutuphaneYonetımSıstemı.Models.Genre>
+
+@{
+    ViewBag.Title = "Tur Listesi";
+}
+
+<h2>Tur Listesi</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Genre</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h4>Tur Adı</h4>
+            </th>
+            <th>
+                <h4>Kitap Sayısı</h4>
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.genre_name)
+                </td>
+                <td>
+                    @(item.Books != null ? item.Books.Count.ToString() : "0")
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
